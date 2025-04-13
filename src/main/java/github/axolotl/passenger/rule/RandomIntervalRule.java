@@ -28,16 +28,16 @@ public class RandomIntervalRule implements PassengerGenerationRule {
     }
 
     @Override
-    public Passenger generatePassenger(Building building) {
+    public Passenger generate(Building building) {
         // 重置下次生成时间
         nextGenTime += ThreadLocalRandom.current().nextInt(minInterval, maxInterval);
 
         int totalFloors = building.getFloors();
         int startFloor = ThreadLocalRandom.current().nextInt(1, totalFloors + 1);
-        int destFloor;
-        do {
-            destFloor = ThreadLocalRandom.current().nextInt(1, totalFloors + 1);
-        } while (destFloor == startFloor);
+        int destFloor = ThreadLocalRandom.current().nextInt(1, totalFloors + 1);
+        if (destFloor >= startFloor)
+            destFloor++;//使得不会重复到自己
+
 
         return new Passenger(startFloor, destFloor);
     }

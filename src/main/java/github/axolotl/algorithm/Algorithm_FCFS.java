@@ -26,6 +26,7 @@ public class Algorithm_FCFS implements ElevatorSchedulingAlgorithm {
 
     @Override
     public Elevator doLogic(Building building, Elevator elevator) {
+        if (elevator.getDirection() == Direction.WAIT) return elevator;
         if (!elevator.getPassengers().isEmpty()) {
             //有乘客了
             Passenger passenger = elevator.getPassengers().get(0);

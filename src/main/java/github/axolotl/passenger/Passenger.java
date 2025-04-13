@@ -15,6 +15,7 @@ public class Passenger {
     private final int targetFloor;
     private Direction direction;//借用这个的UP共和DOWN表示乘客的按下
     private long waitingTime = 0;//总共等待时长
+    private long arriveTime = 0;//乘坐电梯时间
 
     public Passenger(int originFloor, int targetFloor) {
         this.originFloor = originFloor;
@@ -29,9 +30,16 @@ public class Passenger {
     public void addWaitingTime(long time) {
         this.waitingTime += time;
     }
+    public void addArriveTime(long time) {
+        this.arriveTime += time;
+    }
 
-    public void finish() {
-        System.out.printf("任务完成: 耗时: %.2fs\n", (waitingTime / 1000d));
+    public void finishWait() {
+//        System.out.printf("任务完成: 等待: %.2fs\n", (waitingTime / 1000d));
+    }
+
+    public void finishElevator() {
+//        System.out.printf("任务完成: 乘坐: %.2fs\n", (waitingTime / 1000d));
     }
 
 

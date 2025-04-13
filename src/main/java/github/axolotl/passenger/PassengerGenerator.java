@@ -1,6 +1,7 @@
 package github.axolotl.passenger;
 
 import github.axolotl.elevator.Building;
+import github.axolotl.event.EventRecoder;
 import github.axolotl.passenger.rule.PassengerGenerationRule;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 // 主生成器类
 public class PassengerGenerator {
+    private EventRecoder eventRecoder;
     private final List<PassengerGenerationRule> rules = new ArrayList<>();
 
     public void addRule(PassengerGenerationRule rule) {
@@ -22,7 +24,7 @@ public class PassengerGenerator {
     public void tick(Building building) {
         for (PassengerGenerationRule rule : rules) {
             if (rule.shouldGenerate(building.getCurrentTime())) {
-                Passenger passenger = rule.generatePassenger(building);
+                Passenger passenger = rule.generate(building);
                 building.passengerCall(passenger);
             }
         }

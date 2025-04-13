@@ -1,6 +1,9 @@
 package github.axolotl.passenger.rule;
 
 import github.axolotl.elevator.Building;
+import github.axolotl.event.EventRecoder;
+import github.axolotl.event.EventType;
+import github.axolotl.event.PassengerEvent;
 import github.axolotl.passenger.Passenger;
 
 /**
@@ -10,5 +13,6 @@ import github.axolotl.passenger.Passenger;
  */
 public interface PassengerGenerationRule {
     boolean shouldGenerate(long currentTime);
-    Passenger generatePassenger(Building building);
+    Passenger generate(Building building);
+
 }

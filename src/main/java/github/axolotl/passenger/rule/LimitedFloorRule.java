@@ -32,14 +32,14 @@ public class LimitedFloorRule implements PassengerGenerationRule {
     }
 
     @Override
-    public Passenger generatePassenger(Building building) {
+    public Passenger generate(Building building) {
         nextGenTime += ThreadLocalRandom.current().nextInt(minInterval, maxInterval);
 
         int startFloor = ThreadLocalRandom.current().nextInt(minFloor, maxFloor + 1);
-        int destFloor;
-        do {
-            destFloor = ThreadLocalRandom.current().nextInt(minFloor, maxFloor + 1);
-        } while (destFloor == startFloor);
+        int destFloor = ThreadLocalRandom.current().nextInt(minFloor, maxFloor + 1);
+        if (destFloor >= startFloor)
+            destFloor++;//使得不会重复到自己
+
 
         return new Passenger(startFloor, destFloor);
     }
