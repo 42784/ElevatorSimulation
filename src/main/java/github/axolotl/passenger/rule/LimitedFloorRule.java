@@ -36,7 +36,7 @@ public class LimitedFloorRule implements PassengerGenerationRule {
         nextGenTime += ThreadLocalRandom.current().nextInt(minInterval, maxInterval);
 
         int startFloor = ThreadLocalRandom.current().nextInt(minFloor, maxFloor + 1);
-        int destFloor = ThreadLocalRandom.current().nextInt(minFloor, maxFloor + 1);
+        int destFloor = ThreadLocalRandom.current().nextInt(minFloor, maxFloor );
         if (destFloor >= startFloor)
             destFloor++;//使得不会重复到自己
 

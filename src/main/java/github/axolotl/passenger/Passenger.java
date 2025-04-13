@@ -24,7 +24,7 @@ public class Passenger {
         if (originFloor <= targetFloor) direction = Direction.UP;//向上走
         else direction = Direction.DOWN;
 
-//        System.out.printf("任务创建: 起始位置: %d, 目标位置: %d\n", originFloor, targetFloor);
+        System.out.printf("任务创建: 起始位置: %d, 目标位置: %d\n", originFloor, targetFloor);
     }
 
     public void addWaitingTime(long time) {
@@ -44,16 +44,16 @@ public class Passenger {
 
 
     /**
-     * 乘客初始位置
+     * 乘客目标位置
      */
     public double getTargetFloorHeight(Building building) {
         return (targetFloor - 1) * building.getFloorHeight();
     }
 
     /**
-     * 乘客目标位置
+     * 乘客初始位置
      */
     public double getOriginFloorHeight(Building building) {
-        return (targetFloor - 1) * building.getFloorHeight();
+        return (originFloor - 1) * building.getFloorHeight();
     }
 }

@@ -34,7 +34,7 @@ public class RandomIntervalRule implements PassengerGenerationRule {
 
         int totalFloors = building.getFloors();
         int startFloor = ThreadLocalRandom.current().nextInt(1, totalFloors + 1);
-        int destFloor = ThreadLocalRandom.current().nextInt(1, totalFloors + 1);
+        int destFloor = ThreadLocalRandom.current().nextInt(1, totalFloors );
         if (destFloor >= startFloor)
             destFloor++;//使得不会重复到自己
 

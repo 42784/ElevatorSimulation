@@ -23,7 +23,7 @@ class FCFSTest {
         // 5F商城
         EventRecoder eventRecoder = new EventRecoder();
 
-        Building building = new Building(2000_000, 5, 3, 100, eventRecoder);
+        Building building = new Building(20000_000, 5, 3, 100, eventRecoder);
 
         PassengerGenerator generator = new PassengerGenerator();
         generator.addRule(new LimitedFloorRule(100_000, 200_000, 1, 5));
