@@ -24,7 +24,7 @@ public class Passenger {
         if (originFloor <= targetFloor) direction = Direction.UP;//向上走
         else direction = Direction.DOWN;
 
-        System.out.printf("任务创建: 起始位置: %d, 目标位置: %d\n", originFloor, targetFloor);
+//        System.out.printf("任务创建: 起始位置: %d, 目标位置: %d\n", originFloor, targetFloor);
     }
 
     public void addWaitingTime(long time) {

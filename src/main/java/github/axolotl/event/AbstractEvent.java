@@ -12,4 +12,5 @@ import lombok.Data;
 @AllArgsConstructor
 public abstract class AbstractEvent {
     private EventType type;
+
 }
